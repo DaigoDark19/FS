@@ -1,48 +1,19 @@
-from sprite import SpriteAnimation
+from .character import Character
 
 
-class Enemy:
-    def __init__(self, s: int):
-        self.sp = {
-            'esqueletoWalk': SpriteAnimation(
-                'sprite\\esqueletos\\Skeleton_Warrior\\walk\\Walk',
-                7, 200, 200, 24
-                ),
-            'esqueletoattack': SpriteAnimation(
-                'sprite\\esqueletos\\Skeleton_Warrior\\attack2\\Attack',
-                4, 200, 200, 10
-                ),
-            'esqueletoDead': SpriteAnimation(
-                'sprite\\esqueletos\\Skeleton_Warrior\\Dead\\Dead',
-                4, 200, 200, 20)
-
-        }
-
-        self.sp2 = {
-            'esqueletoWalkL': SpriteAnimation(
-                'sprite\\esqueletos\\Skeleton_Spearman\\walk\\Walk',
-                7, 200, 200, 24
-                ),
-            'esqueletoattackL': SpriteAnimation(
-                'sprite\\esqueletos\\Skeleton_Spearman\\attack\\Attack',
-                4, 200, 200, 10
-                ),
-            'esqueletoDeadL': SpriteAnimation(
-                'sprite\\esqueletos\\Skeleton_Spearman\\dead\\Dead',
-                5, 200, 200, 20
-                )
-        }
-
-        self.s = s
-        self.newposx = 600
-        self.newposy = 400
-        self.direction = False
+class Enemy(Character):
+    def __init__(self):
         self.acc = False
         self.walking = True
-        self.vida = 1
         self.move = self.sp['esqueletoWalk']
         self.atta = self.sp['esqueletoattack']
         self.Dead = self.sp['esqueletoDead']
+        print('merequetengue')
+
+    @classmethod
+    def create_enemy(cls):
+        print('holaaa si')
+        Enemy()
 
     def dead(self):
         if self.s == 0:
@@ -106,3 +77,4 @@ class Enemy:
         else:
             self.Dead.animation(s, self.newposx, self.newposy, self.direction)
 
+Enemy.create_enemy()

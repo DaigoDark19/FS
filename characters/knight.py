@@ -1,6 +1,6 @@
 
 import pygame
-
+import math
 from sprite import SpriteAnimation
 
 
@@ -191,4 +191,3 @@ class Knight:
                     self.hurting = False
         else:
             self.Dead.animation(s, self.newposx, self.newposy, self.direction)
-
