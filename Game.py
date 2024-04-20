@@ -1,5 +1,6 @@
 import pygame
-from personajes import knight, enemy, Boss
+from characters import Knight, Enemy, Boss
+
 import time
 import random
 
@@ -39,10 +40,10 @@ background = [
 ]
 
 
-player = knight()
+player = Knight()
 boss = Boss()
-esqueletoS = enemy(0)
-esqueletoL = enemy(1)
+esqueletoS = Enemy(0)
+esqueletoL = Enemy(1)
 
 boss.Move = boss.inicio()
 indBack = 0
